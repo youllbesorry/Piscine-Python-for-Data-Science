@@ -25,11 +25,15 @@ def zoom():
     
 def main():
     image = zoom()
-    height, width, channels = image.shape
     rotated_image = []
-    for i in range(height):
-        for row in image:
-            rotated_image.append(row[width])
+    # for x in range(len(image)):
+    #     new_row = [row[x] for row in image]
+    #     rotated_image.append(new_row)
+    for i in range(len(image[0])):
+        new_row = []
+        for j in range(len(image)):
+            new_row.append(image[j][i])
+        rotated_image.append(new_row)
     rotated_image = np.array(rotated_image)
     print(rotated_image)
     plt.imshow(rotated_image, cmap='grey')
