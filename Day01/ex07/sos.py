@@ -1,3 +1,4 @@
+"""It's a morse code generator,nothing less and nothing more"""
 import sys
 
 
@@ -51,6 +52,15 @@ def main(argv: list[str]):
 
 
 if __name__ == "__main__":
-    assert len(sys.argv) == 2, "the arguments are bad"
-    assert all(c.isalnum() or c.isspace() for c in sys.argv[1]), "the arguments are bad"
+    try:
+        assert len(sys.argv) == 2
+    except AssertionError:
+        print("AssertionError: the arguments are bad")
+        sys.exit()
+    try:
+        assert all(c.isalnum() or c.isspace()
+                   for c in sys.argv[1])
+    except AssertionError:
+        print("AssertionError: the arguments are bad")
+        sys.exit()
     main(sys.argv[1])

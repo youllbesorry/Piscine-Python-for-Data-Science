@@ -6,8 +6,16 @@ def main(argc, argv):
         var = True
     except ValueError:
         var = False
-    assert var, "argument is not an integer"
-    assert argc == 1, "more than one argument is provided"
+    try:
+        assert var
+    except AssertionError:
+        print("AssertionError: argument is not an integer")
+        return
+    try:
+        assert argc == 1
+    except AssertionError:
+        print("AssertionError: more than one argument is provided")
+        return
     
     if (int(argv) % 2 == 0):
         print("I'm Even")

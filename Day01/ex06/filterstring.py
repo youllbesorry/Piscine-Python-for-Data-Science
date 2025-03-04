@@ -1,22 +1,27 @@
+"""This programme accepts two arguments: a string(S), and an integer(N).
+The program output is a list of words from S that have a length greater than N.
+The Words are separated from each other by space characters.
+The Strings do not contain any special characters"""
 import sys
 from ft_filter import ft_filter
 
 
 def filterstring(S: str, N: int) -> list:
     try:
-        assert isinstance(S, str), "Wrong S Type"
-        assert isinstance(N, int), "Wrong N Type"
-        
+        assert isinstance(S, str)
+        assert isinstance(N, int)
+
         SList = S.split()
-        isLongEnough = lambda x: len(x) > N
-        newList = ft_filter(isLongEnough, SList)
+        newList = ft_filter((lambda x: len(x) > N), SList)
         return (newList)
-    except AssertionError as e:
-        print(e)
+    except AssertionError:
+        print("AssertionError: the arguments are bad bis")
         return
 
 
-
 if __name__ == "__main__":
-    assert len(sys.argv) == 3, "the arguments are bad"
-    print(filterstring(sys.argv[1], int(sys.argv[2])))
+    try:
+        assert len(sys.argv) == 3
+        print(filterstring(sys.argv[1], int(sys.argv[2])))
+    except AssertionError:
+        print("AssertionError: the arguments are bad")
