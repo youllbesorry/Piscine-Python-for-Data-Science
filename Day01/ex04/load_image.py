@@ -15,6 +15,4 @@ def ft_load(path: str) -> list:
     if (image is None):
         raise ValueError("Image not found or couldn't be open")
 
-    # image_array = np.array(image)
-
     return (image)

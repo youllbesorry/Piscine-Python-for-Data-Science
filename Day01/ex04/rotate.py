@@ -26,9 +26,6 @@ def zoom():
 def main():
     image = zoom()
     rotated_image = []
-    # for x in range(len(image)):
-    #     new_row = [row[x] for row in image]
-    #     rotated_image.append(new_row)
     for i in range(len(image[0])):
         new_row = []
         for j in range(len(image)):
